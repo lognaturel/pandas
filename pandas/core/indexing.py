@@ -163,10 +163,6 @@ class IndexingMixin:
         """
         Purely integer-location based indexing for selection by position.
 
-        .. deprecated:: 2.2.0
-
-           Returning a tuple from a callable is deprecated.
-
         ``.iloc[]`` is primarily integer position based (from ``0`` to
         ``length-1`` of the axis), but may also be used with a boolean
         array.
@@ -188,6 +184,11 @@ class IndexingMixin:
         ``.iloc`` will raise ``IndexError`` if a requested indexer is
         out-of-bounds, except *slice* indexers which allow out-of-bounds
         indexing (this conforms with python/numpy *slice* semantics).
+
+        .. warning::
+
+           Returning a tuple from a callable with iloc was previously supported but
+           was deprecated in 2.2.0.
 
         See more at :ref:`Selection by Position <indexing.integer>`.
 
